@@ -10,7 +10,7 @@ const GenerateProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [imgs, setImgs] = useState([]);
   const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: "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",
     dangerouslyAllowBrowser: true,
   });
   async function generateImgs(img) {
