@@ -55,7 +55,7 @@ const GenerateProvider = ({ children }) => {
       body: JSON.stringify({
         model: "tts-1-hd",
         input: text,
-        voice: "alloy",
+        voice: "echo",
         response_format: "mp3",
       }),
     });
