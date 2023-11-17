@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 import OpenAI from "openai";
-
 export const GenerateContext = createContext();
 
 const GenerateProvider = ({ children }) => {
@@ -10,11 +9,7 @@ const GenerateProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [imgs, setImgs] = useState([]);
   const openai = new OpenAI({
-    apiKey: "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",
-    dangerouslyAllowBrowser: true,
-  });
-    const openai2 = new OpenAI({
-    apiKey: "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",
+    apiKey: "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",
     dangerouslyAllowBrowser: true,
   });
   async function generateImgs(img) {
@@ -25,7 +20,7 @@ const GenerateProvider = ({ children }) => {
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${openai2.apiKey}`,
+          Authorization: `Bearer ${import.meta.env.VITE_APP_API_KEY2}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
@@ -49,11 +44,11 @@ const GenerateProvider = ({ children }) => {
     const response = await fetch("https://api.openai.com/v1/audio/speech", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${openai.apiKey}`,
+        Authorization: `Bearer ${import.meta.env.VITE_APP_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "tts-1-hd",
+        model: "tts-1",
         input: text,
         voice: "echo",
         response_format: "mp3",
@@ -71,7 +66,16 @@ const GenerateProvider = ({ children }) => {
   console.log(error);
   return (
     <GenerateContext.Provider
-      value={{ generateImgs, setImgs, imgs, loading, error, generateText , audioUrl , setAudioUrl}}
+      value={{
+        generateImgs,
+        setImgs,
+        imgs,
+        loading,
+        error,
+        generateText,
+        audioUrl,
+        setAudioUrl,
+      }}
     >
       {children}
     </GenerateContext.Provider>
