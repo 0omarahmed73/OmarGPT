@@ -13,6 +13,10 @@ const GenerateProvider = ({ children }) => {
     apiKey: "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",
     dangerouslyAllowBrowser: true,
   });
+    const openai2 = new OpenAI({
+    apiKey: "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",
+    dangerouslyAllowBrowser: true,
+  });
   async function generateImgs(img) {
     setError(false);
     setLoading(true);
@@ -21,7 +25,7 @@ const GenerateProvider = ({ children }) => {
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${openai.apiKey}`,
+          Authorization: `Bearer ${openai2.apiKey}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
