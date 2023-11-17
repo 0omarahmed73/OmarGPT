@@ -1,0 +1,51 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; 
+  .hello { 
+    background-color: rgb(2, 2, 50);
+    border-radius: 10px;
+    min-height: calc(100vh - 120px);
+    padding-block: 40px;
+
+    
+  }
+}
+.choosen , .im , .images {
+  width: 100% !important;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  border-radius: 10px;
+  background-color: rgb(1, 1, 83);
+
+}
+
+input::placeholder {
+  color: rgba(128, 128, 128, 0.592) !important;
+  transition: 0.3s;
+}
+
+input:focus::placeholder {
+  color: transparent !important;
+}
+
+img {
+  width: 100% !important;
+}
+
+/* HTML: <div class="loader"></div> */
+
+.select {
+  margin: 0;
+  @media screen and (max-width : 560px) {
+    & {
+      font-size: 15px;
+    }
+  }
+}
